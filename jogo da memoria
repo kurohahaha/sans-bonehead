@@ -74,13 +74,6 @@ void esconder(int matriz[MAX][MAX])
       printf("-\n");
   }
 }
-void esconderevela(int matriz[MAX][MAX],int *p,int *q,int *p2,int *q2)
-{     	
-     if(matriz[*p][*q] == matriz[*p2][*q2])
-	    matriz[MAX][MAX] = 0;
-	if(matriz[MAX][MAX] == 0)
-		printf("jogada já existente");  
-}
 void mostrar(int matriz[MAX][MAX])
 
 {
@@ -122,19 +115,21 @@ int main()
              scanf("%d", &iv);
              printf("escolha a coluna 1\n");
              scanf("%d", &jv);
-	     esconderrevela(matriz,&iv,&jv);
-
 	     printf("escolha a linha 2\n");
              scanf("%d", &iv2);
              printf("escolha a coluna 2\n");
              scanf("%d", &jv2);
-	     esconderrevela(matriz,&iv2,&jv2);
-
-
+	    		
+	     if(matriz[iv][jv] == matriz[iv2][jv2]){
+			matriz[iv][jv]=0;
+			matriz[iv2][jv2]=0;
+		}
+		else if(matriz[iv][jv]){
+			printf("jogada errada");
 			}
 	else printf("erro  de jogada reenicie o jogo\n");		  
 		 }
-		   
+	}	   
 mostrar(matriz);
 return 0;
 }
